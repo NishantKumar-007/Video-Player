@@ -1,11 +1,13 @@
-import VideoPlayer from "./component/VideoPlayer";
+import VideoList from "./component/VideoList";
 import { RecoilRoot } from "recoil";
 
 function App() {
   return (
     <RecoilRoot>
-      <div>MY VIDEO PLAYER</div>
-      <VideoPlayer></VideoPlayer>
+      <main className="relative bg-gradient-to-tr from-black via-slate-800 to-black w-full min-h-screen">
+        <div className="text-white">MY VIDEO PLAYER</div>
+        <VideoList></VideoList>
+      </main>
     </RecoilRoot>
   );
 }
