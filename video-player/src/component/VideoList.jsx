@@ -43,16 +43,16 @@ const VideoList = () => {
               ))}
         </div>
       )}
-      <div className="p-5 lg:flex lg:justify-evenly  text-white ">
+      <div className="p-5 lg:flex lg:justify-evenly text-white ">
         {selectedVideo && (
           <>
             <VideoPlayer src={selectedVideo.sources}></VideoPlayer>
 
-            <div className="playlist text-white font-quicksand">
+            <div className="playlist text-white font-quicksand lg:ml-5 overflow-y-auto no-scrollbar  lg:h-[80vh]">
               {videoData.map((video, index) => (
                 <div
                   key={index}
-                  className={`playlist-item cursor-pointer my-2 ${
+                  className={`playlist-item cursor-pointer my-2 bg-white/15 rounded-lg p-4 hover:bg-slate-100/35 ${
                     selectedVideo.title === video.title ? "selected" : ""
                   }`}
                   onClick={() => handleVideoClick(video)}
