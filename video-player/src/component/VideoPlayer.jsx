@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
-import { IoPlay, IoPause } from "react-icons/io5";
+import { IoPlay, IoPause, IoVolumeHigh } from "react-icons/io5";
 import { BsFullscreen } from "react-icons/bs";
 
 /* eslint-disable react/prop-types */
@@ -33,9 +33,13 @@ const VideoPlayer = ({ src }) => {
 
   const handleLoadedData = () => {
     const video = videoRef.current;
+    const totalTimeInSeconds = parseInt(video.duration);
+
     setPlayStatus(true);
     setSliderValue(0);
-    setDuration(video.duration);
+    setDuration(
+      new Date(totalTimeInSeconds * 1000).toISOString().slice(11, 19)
+    );
     setVideoSpeed(1);
   };
   const handlePlayAction = () => {
@@ -87,45 +91,60 @@ const VideoPlayer = ({ src }) => {
         <source src={source} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute bottom-0 p-8 w-full ">
-        <div className="w-full flex justify-around items-center">
-          <div onClick={handlePlayAction} className="cursor-pointer">
-            {playStatus ? <IoPause /> : <IoPlay />}
-          </div>
-          <input
-            className="seekBar"
-            onChange={handleSeekBar}
-            type="range"
-            value={sliderValue}
-          ></input>
-          <div>
-            {currentTime}/{duration}
-          </div>
-          <div className="cursor-pointer" onClick={handleFullscreen}>
-            <BsFullscreen />
-          </div>
-          <div>
-            <select
-              onChange={(e) => handleSpeedChange(parseFloat(e.target.value))}
-            >
-              <option value="0.5">0.5x</option>
-              <option selected value="1">
-                1x
-              </option>
-              <option value="1.5">1.5x</option>
-              <option value="2">2x</option>
-            </select>
-          </div>
-          <div>
-            <label>Volume: </label>
+      <div className="absolute bottom-0 p-5 w-full ">
+        <div className="w-full flex justify-between items-center">
+          {/* 1st part of controls */}
+          {/* play/pause */}
+          <div className="flex items-center justify-start">
+            <div onClick={handlePlayAction} className="cursor-pointer mr-2">
+              {playStatus ? <IoPause /> : <IoPlay />}
+            </div>
+            {/* seekbar */}
             <input
+              className="seekBar mr-2 h-0.5"
+              onChange={handleSeekBar}
               type="range"
-              min="0"
-              max="1"
-              step="0.1"
-              value={volume}
-              onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
-            />
+              value={sliderValue}
+            ></input>
+            {/* current time / duration */}
+            <div>
+              {new Date(parseInt(currentTime) * 1000)
+                .toISOString()
+                .slice(11, 19) + " "}
+              / {duration}
+            </div>
+          </div>
+          {/* second part of controls */}
+          <div className="flex items-center justify-end">
+            {/* speed change */}
+            <div className=" mr-2">
+              <select
+                className="border-none bg-transparent focus:bg-slate-900"
+                onChange={(e) => handleSpeedChange(parseFloat(e.target.value))}
+              >
+                <option value="0.5">0.5x</option>
+                <option selected value="1">
+                  1x
+                </option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+              </select>
+            </div>
+            <div className="flex mr-2 items-center">
+              <IoVolumeHigh />
+              <input
+                className="h-0.5"
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+              />
+            </div>
+            <div className="cursor-pointer" onClick={handleFullscreen}>
+              <BsFullscreen className="text-xl" />
+            </div>
           </div>
         </div>
       </div>
