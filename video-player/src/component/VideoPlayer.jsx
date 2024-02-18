@@ -91,21 +91,25 @@ const VideoPlayer = ({ src }) => {
         <source src={source} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute bottom-0 p-5 w-full ">
-        <div className="w-full flex justify-between items-center">
+      <div className="font-medium absolute bottom-0 p-5 w-full ">
+        {/* seekbar */}
+        <input
+          className="seekBar cursor-pointer mr-2 h-0.5 w-full accent-cyan-900"
+          onChange={handleSeekBar}
+          type="range"
+          value={sliderValue}
+        ></input>
+        <div className="flex justify-between items-center">
           {/* 1st part of controls */}
           {/* play/pause */}
           <div className="flex items-center justify-start">
             <div onClick={handlePlayAction} className="cursor-pointer mr-2">
-              {playStatus ? <IoPause /> : <IoPlay />}
+              {playStatus ? (
+                <IoPause className="text-xl cursor-pointer" />
+              ) : (
+                <IoPlay className="text-xl cursor-pointer" />
+              )}
             </div>
-            {/* seekbar */}
-            <input
-              className="seekBar mr-2 h-0.5"
-              onChange={handleSeekBar}
-              type="range"
-              value={sliderValue}
-            ></input>
             {/* current time / duration */}
             <div>
               {new Date(parseInt(currentTime) * 1000)
@@ -119,7 +123,7 @@ const VideoPlayer = ({ src }) => {
             {/* speed change */}
             <div className=" mr-2">
               <select
-                className="border-none bg-transparent focus:bg-slate-900"
+                className="border-none bg-transparent focus:bg-slate-900 cursor-pointer"
                 onChange={(e) => handleSpeedChange(parseFloat(e.target.value))}
               >
                 <option value="0.5">0.5x</option>
@@ -130,10 +134,10 @@ const VideoPlayer = ({ src }) => {
                 <option value="2">2x</option>
               </select>
             </div>
-            <div className="flex mr-2 items-center">
-              <IoVolumeHigh />
+            <div className="flex mr-2 items-center accent-cyan-900">
+              <IoVolumeHigh className="text-xl cursor-pointer " />
               <input
-                className="h-0.5"
+                className="h-0.5 cursor-pointer"
                 type="range"
                 min="0"
                 max="1"

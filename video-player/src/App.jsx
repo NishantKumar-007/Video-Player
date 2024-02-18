@@ -1,5 +1,8 @@
 import VideoList from "./component/VideoList";
 import { RecoilRoot } from "recoil";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Catalouge from "./component/Catalouge";
+import VideoPlayerContainer from "./component/VideoPlayerContainer";
 
 function App() {
   return (
@@ -12,7 +15,17 @@ function App() {
           className="w-2/3 rounded-lg mt-4 p-3 bg-transparent/45 focus:text-white"
           placeholder="What's on your mind today?"
         ></input>
-        <VideoList></VideoList>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<VideoList></VideoList>}>
+              <Route path="/" element={<Catalouge></Catalouge>}></Route>
+              <Route
+                path="video-player"
+                element={<VideoPlayerContainer></VideoPlayerContainer>}
+              ></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </main>
     </RecoilRoot>
   );
