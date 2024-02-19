@@ -14,13 +14,13 @@ const VideoPlayerContainer = () => {
     <div className="p-5 lg:flex lg:justify-evenly text-white">
       <VideoPlayer src={selectedVideo.sources}></VideoPlayer>
 
-      <div className="playlist text-white font-quicksand lg:ml-5 overflow-y-auto no-scrollbar  lg:h-[80vh]">
-        <h1 className="font-quicksand m-2 text-3xl">Playlist</h1>
+      <div className="playlist  text-white font-quicksand lg:ml-5 overflow-y-auto no-scrollbar  lg:h-[80vh]">
+        <h1 className="font-quicksand lg:w-full m-2 text-3xl">Playlist</h1>
         {videoData.map((video, index) => (
           <div
             key={index}
             draggable
-            className={`playlist-item cursor-pointer my-2 bg-white/15 rounded-lg p-4 hover:bg-slate-100/35 ${
+            className={`playlist-item lg:w-full   cursor-pointer my-2 bg-white/15 rounded-lg p-4 hover:bg-slate-100/35 ${
               selectedVideo.title === video.title ? "selected" : ""
             }`}
           >

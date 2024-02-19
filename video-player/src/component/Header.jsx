@@ -7,7 +7,7 @@ const Header = () => {
   const setVideoData = useSetRecoilState(videoDataState);
   const handleSearch = (e) => {
     const filteredData = copydata.filter((element) => {
-      return element.title.toLowerCase().includes(e.target.value);
+      return element.title.toLowerCase().includes(e.target.value.toLowerCase());
     });
 
     console.log(filteredData);
