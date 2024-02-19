@@ -40,4 +40,5 @@
 
 # To fix
 - Playlist reordering
-- adding shortcuts
+- Adding shortcuts
+- persisting data in local storage
