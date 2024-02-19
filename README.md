@@ -9,6 +9,7 @@
 
 </aside>
 
+
 **Table of contents**
 
 # How to run
@@ -42,7 +43,8 @@
 - Playlist reordering
 - Adding shortcuts
 - persisting data in local storage
-
+- Improve Lighthouse Score
+  
 # Lighthouse Score
 
 ![Screenshot 2024-02-19 144224](https://github.com/NishantKumar-007/Video-Player/assets/61771311/260979ce-fd1d-44d6-9f9d-d0c59081e5aa)
