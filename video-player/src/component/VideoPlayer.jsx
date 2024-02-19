@@ -111,13 +111,19 @@ const VideoPlayer = ({ src }) => {
               )}
             </div>
             {/* current time / duration */}
-            <div>
+            <div className="md:flex hidden">
               {new Date(parseInt(currentTime) * 1000)
                 .toISOString()
                 .slice(11, 19) + " "}
               / {duration}
             </div>
+            <div className="md:hidden ">
+              {new Date(parseInt(currentTime) * 1000)
+                .toISOString()
+                .slice(11, 19) + " "}
+            </div>
           </div>
+
           {/* second part of controls */}
           <div className="flex items-center justify-end">
             {/* speed change */}
@@ -134,7 +140,8 @@ const VideoPlayer = ({ src }) => {
                 <option value="2">2x</option>
               </select>
             </div>
-            <div className="flex mr-2 items-center accent-cyan-900">
+            {/* volume control */}
+            <div className="md:flex mr-2 items-center accent-cyan-900 hidden ">
               <IoVolumeHigh className="text-xl cursor-pointer " />
               <input
                 className="h-0.5 cursor-pointer"
