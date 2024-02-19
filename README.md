@@ -1,4 +1,4 @@
-## Deployed here
+## Deployed here (Open in laptop for best experience)
 <aside>
 🖥️ Deployed here - https://video-player-phi-smoky.vercel.app/
 
@@ -42,3 +42,7 @@
 - Playlist reordering
 - Adding shortcuts
 - persisting data in local storage
+
+# Lighthouse Score
+
+![Screenshot 2024-02-19 144224](https://github.com/NishantKumar-007/Video-Player/assets/61771311/260979ce-fd1d-44d6-9f9d-d0c59081e5aa)
