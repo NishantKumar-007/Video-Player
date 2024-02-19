@@ -15,6 +15,7 @@
 
 - Clone the repository . Open code in VS code or code editor of your choice.
 - cd video-player
+- npm install
 - npm run dev
 
 # Features
