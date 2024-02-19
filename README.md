@@ -40,3 +40,4 @@
 
 # To fix
 - Playlist reordering
+- adding shortcuts
