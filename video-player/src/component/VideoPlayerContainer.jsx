@@ -15,15 +15,16 @@ const VideoPlayerContainer = () => {
       <VideoPlayer src={selectedVideo.sources}></VideoPlayer>
 
       <div className="playlist text-white font-quicksand lg:ml-5 overflow-y-auto no-scrollbar  lg:h-[80vh]">
+        <h1 className="font-quicksand m-2 text-3xl">Playlist</h1>
         {videoData.map((video, index) => (
           <div
             key={index}
+            draggable
             className={`playlist-item cursor-pointer my-2 bg-white/15 rounded-lg p-4 hover:bg-slate-100/35 ${
               selectedVideo.title === video.title ? "selected" : ""
             }`}
-            onClick={() => handleVideoClick(video)}
           >
-            {video.title}
+            <div onClick={() => handleVideoClick(video)}>{video.title}</div>
           </div>
         ))}
       </div>
