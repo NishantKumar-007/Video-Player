@@ -28,7 +28,7 @@
 - Volume control
 - Responsive
 - Speed selector for playback speed adjustment.
-- Playlist Reordering (in progress)
+- Search Functionality
 
 # Libraries and Tools
 
