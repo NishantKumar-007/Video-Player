@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Catalouge from "./component/Catalouge";
 import VideoPlayerContainer from "./component/VideoPlayerContainer";
 import Header from "./component/Header";
+import SearchBox from "./component/SearchBox";
 
 function App() {
   return (
@@ -13,7 +14,15 @@ function App() {
           <Header></Header>
           <Routes>
             <Route path="/" element={<VideoList></VideoList>}>
-              <Route path="/" element={<Catalouge></Catalouge>}></Route>
+              <Route
+                path="/"
+                element={
+                  <div className="flex flex-col items-center">
+                    <SearchBox></SearchBox>
+                    <Catalouge></Catalouge>
+                  </div>
+                }
+              ></Route>
               <Route
                 path="video-player"
                 element={<VideoPlayerContainer></VideoPlayerContainer>}
