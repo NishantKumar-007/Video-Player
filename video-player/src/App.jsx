@@ -1,4 +1,4 @@
-import VideoList from "./component/VideoList";
+import MainConatainer from "./component/MainConatainer";
 import { RecoilRoot } from "recoil";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Catalouge from "./component/Catalouge";
@@ -13,7 +13,7 @@ function App() {
         <BrowserRouter>
           <Header></Header>
           <Routes>
-            <Route path="/" element={<VideoList></VideoList>}>
+            <Route path="/" element={<MainConatainer></MainConatainer>}>
               <Route
                 path="/"
                 element={
