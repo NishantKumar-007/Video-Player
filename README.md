@@ -31,6 +31,7 @@
 - Responsive
 - Speed selector for playback speed adjustment.
 - Search Functionality
+- Playlist reordering
 
 # Libraries and Tools
 
@@ -40,7 +41,6 @@
 - Vercel - deployment
 
 # To fix
-- Playlist reordering
 - Adding shortcuts
 - persisting data in local storage
 - Improve Lighthouse Score
