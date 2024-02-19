@@ -36,3 +36,6 @@
 - Tailwind - CSS
 - Recoil - state management
 - Vercel - deployment
+
+# To fix
+- Playlist reordering
